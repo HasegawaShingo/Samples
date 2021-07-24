@@ -8,18 +8,16 @@ namespace SampleLog4net
     public partial class Form1 : Form
     {
         /// <summary>
-        /// ロガー
+        /// Log4net ロガーインスタンス取得
         /// </summary>
-        private readonly ILog Logger;
+        private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
-        /// コンストラクタでロガーを設定します。
+        /// コンストラクタ。
         /// </summary>
-        /// <param name="logger">ロガーインスタンスを指定してください。</param>
-        public Form1(ILog logger)
+        public Form1()
         {
             InitializeComponent();
-            Logger = logger;
         }
 
         /// <summary>

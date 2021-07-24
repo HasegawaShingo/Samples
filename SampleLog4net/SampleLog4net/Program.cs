@@ -6,7 +6,9 @@ namespace SampleLog4net
 {
     static class Program
     {
-        // Log4net ロガーインスタンス
+        /// <summary>
+        /// Log4net ロガーインスタンス取得
+        /// </summary>
         private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
@@ -19,7 +21,7 @@ namespace SampleLog4net
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Logger.Info("Start Main form");
-            Application.Run(new Form1(Logger));
+            Application.Run(new Form1());
             Logger.Info("End Main form");
         }
     }
