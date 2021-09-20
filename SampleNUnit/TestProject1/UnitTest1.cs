@@ -1,3 +1,4 @@
+using System.Reflection;
 using NUnit.Framework;
 
 namespace TestProject1;
@@ -82,4 +83,44 @@ public class Tests
         return result;
     }
 
+
+    [TestCaseSource("test7_caseset")]
+    public void test7(string filePath, List<string> expectedReadLines)
+    {
+        var actual = SampleNUnit.Class1.ReadLines(filePath);
+        CollectionAssert.AreEqual(actual, expectedReadLines);
+    }
+
+ 
+    static object[][] test7_caseset()
+    {
+        // リソースから実行フォルダにフォルダ作って、ファイルを書き出してあげるのが一番簡単そう。
+        var currentPath = Directory.GetCurrentDirectory();
+        var resourceFolderPath = Path.Combine(currentPath, @"..\..\..\TestInputFile");
+        var absoluteResoucePath = new Uri(resourceFolderPath).AbsolutePath;
+
+        var testFolder = Path.Combine(currentPath, "TestInputFile");
+        if (Directory.Exists(testFolder))
+            Directory.Delete(testFolder, true);
+
+        Directory.CreateDirectory(testFolder);
+        foreach(var file in Directory.GetFiles(absoluteResoucePath))
+        {
+            File.Copy(file, Path.Combine(testFolder, Path.GetFileName(file)), true);
+        }
+
+        // ここまではテストクラスの初期化時に一回だけ実行するればよろし。
+        // こんな感じであれば、テスト実行の環境に依存せずに、コミットしているフォルダーの構成を
+        // 変えない限り、どの開発環境でも実行出来る。
+
+        var testFile = Path.Combine(testFolder, $"{nameof(Resource.Source1)}.txt");
+
+        var expectedList = new List<string> { Resource.Source1 };
+
+        object[][] result =
+        {
+            new object[]{testFile, expectedList }
+        };
+        return result;
+    }
 }

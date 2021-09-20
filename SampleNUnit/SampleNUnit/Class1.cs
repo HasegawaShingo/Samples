@@ -35,4 +35,17 @@ public class Class1
 
         return result;
     }
+
+    /// <summary>
+    /// 外部のファイルを読んで、読み込んだ行リストを返します。
+    /// </summary>
+    /// <param name="filePath">読み込むファイルのパスを指定</param>
+    /// <returns></returns>
+    public static List<string> ReadLines(string filePath)
+    {
+        if (!File.Exists(filePath))
+            throw new FileNotFoundException(filePath);
+
+        return File.ReadAllLines(filePath).ToList();
+    }
 }
