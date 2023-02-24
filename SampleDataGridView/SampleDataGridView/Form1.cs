@@ -29,6 +29,14 @@ namespace SampleDataGridView
         public Form1()
         {
             InitializeComponent();
+            Application.Idle += Application_Idle;
+        }
+
+        bool isProcessing = false;
+
+        private void Application_Idle(object sender, EventArgs e)
+        {
+            isProcessing = false;
         }
 
         /// <summary>
@@ -38,6 +46,11 @@ namespace SampleDataGridView
         /// <param name="e">イベントデータ</param>
         private void BindButton_Click(object sender, EventArgs e)
         {
+            if (isProcessing)
+                return;
+            else
+                isProcessing = true;
+
             var currentCursor = Cursor.Current;
             Cursor.Current = Cursors.WaitCursor;
 
@@ -131,6 +144,8 @@ namespace SampleDataGridView
         {
             if (!IsInitializedDataGridview)
                 return;
+
+            isProcessing = true;
 
             if (CurrentRowIndex == SourceList.CurrentRow.Index)
                 return;

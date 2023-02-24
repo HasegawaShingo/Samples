@@ -55,6 +55,7 @@ namespace SampleDataGridView
             // 
             this.SourceList.AllowUserToAddRows = false;
             this.SourceList.AllowUserToDeleteRows = false;
+            this.SourceList.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.SourceList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.SourceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -66,6 +67,7 @@ namespace SampleDataGridView
             this.SourceList.RowTemplate.Height = 25;
             this.SourceList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SourceList.Size = new System.Drawing.Size(484, 371);
+            this.SourceList.StandardTab = true;
             this.SourceList.TabIndex = 0;
             this.SourceList.SelectionChanged += new System.EventHandler(this.SourceList_SelectionChanged);
             // 
