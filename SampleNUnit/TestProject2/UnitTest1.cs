@@ -69,5 +69,24 @@ namespace TestProject2
             CollectionAssert.AreEqual(actual, expected);
             target.Close();
         }
+
+
+        [Test]
+        public void Test3()
+        {
+            var listA = new List<List<string>>();
+            var aItem1 = new List<string> { "1", "2", "3", "4" };
+            var aItem2 = new List<string> { "5", "6", "7", "8" };
+            listA.Add(aItem1);
+            listA.Add(aItem2);
+
+            var listB = new List<List<string>>();
+            var bItem1 = new List<string> { "1", "2", "3", "4" };
+            var bItem2 = new List<string> { "5", "6", "7", "8" };
+            listB.Add(bItem1);
+            listB.Add(bItem2);
+
+            CollectionAssert.AreEqual(listA, listB);
+        }
     }
 }
