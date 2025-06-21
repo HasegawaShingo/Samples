@@ -1,9 +1,0 @@
-16:19:04.379, [1], INFO , (method name) Main, Start Main form
-16:19:06.162, [1], INFO , (method name) Form1_Load, Load Main form.
-16:19:12.302, [1], INFO , (method name) MoveNext, Start async methods.
-16:19:12.363, [.NET ThreadPool Worker], INFO , (method name) MoveNext, Command1 delay start.
-16:19:12.373, [.NET ThreadPool Worker], INFO , (method name) MoveNext, Command2 delay start.
-16:19:17.402, [.NET ThreadPool Worker], INFO , (method name) MoveNext, Command1 delay end.
-16:19:22.390, [.NET ThreadPool Worker], INFO , (method name) MoveNext, Command2 delay end.
-16:19:22.410, [1], INFO , (method name) MoveNext, End async methods.
-16:19:25.608, [1], INFO , (method name) Main, End Main form
